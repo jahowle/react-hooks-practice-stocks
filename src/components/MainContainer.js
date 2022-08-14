@@ -3,16 +3,17 @@ import StockContainer from "./StockContainer";
 import PortfolioContainer from "./PortfolioContainer";
 import SearchBar from "./SearchBar";
 
-function MainContainer() {
+function MainContainer({stockMarket, portfolio, handleBuy, handleSell, handleFilter, handleAlphabetize, handlePriceFilter}) {
+
   return (
     <div>
-      <SearchBar />
+      <SearchBar handleFilter={handleFilter} handleAlphabetize={handleAlphabetize} handlePriceFilter={handlePriceFilter}/>
       <div className="row">
         <div className="col-8">
-          <StockContainer />
+          <StockContainer stockMarket={stockMarket} handleBuy={handleBuy}/>
         </div>
         <div className="col-4">
-          <PortfolioContainer />
+          <PortfolioContainer portfolio={portfolio} handleSell={handleSell}/>
         </div>
       </div>
     </div>
